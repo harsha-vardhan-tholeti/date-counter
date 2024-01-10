@@ -1,0 +1,42 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.step,
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+button {
+  padding: 5px 10px;
+  margin: 0 10px;
+  background-color: aquamarine;
+  border: 1px solid black;
+}
+
+.counter input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+/* Style for the range input */
+input[type="range"] {
+  --webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background-color: black; /* Background color of the track */
+  outline: none;
+  margin: 10px 0; /* Adjust vertical margin */
+}

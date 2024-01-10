@@ -15,12 +15,26 @@ function App() {
     setStep((step) => step + 1);
   };
 
+  const changeStep = (e) => {
+    setStep(+e.target.value);
+  };
+
   const decreaseCounter = () => {
     setCounter((counter) => counter - 1);
   };
 
   const increaseCounter = () => {
     setCounter((counter) => counter + 1);
+  };
+
+  const changeCounter = (e) => {
+    const inputValue = parseInt(e.target.value) || 0;
+    setCounter(inputValue);
+  };
+
+  const resetDate = () => {
+    setCounter(0);
+    setStep(0);
   };
 
   const d = new Date();
@@ -36,15 +50,28 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="main">
+      <div className="step">
         <button onClick={decreaseStep}>-</button>
-        <span>Step: {step}</span>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value={step}
+          onChange={changeStep}
+        />
         <button onClick={increaseStep}>+</button>
       </div>
-      <div>
+      <div className="counter">
         <button onClick={decreaseCounter}>-</button>
-        <span>Count: {step > 1 ? counter * step : counter}</span>
+        <input
+          type="text"
+          id="numericInput"
+          name="numericInput"
+          pattern="[0-9]*"
+          value={step > 1 ? counter * step : counter}
+          onChange={changeCounter}
+        />
         <button onClick={increaseCounter}>+</button>
       </div>
 
@@ -73,6 +100,8 @@ function App() {
             d.setDate(d.getDate() + counter * step)
           )}`}
       </p>
+
+      <button onClick={resetDate}>Reset</button>
     </div>
   );
 }
